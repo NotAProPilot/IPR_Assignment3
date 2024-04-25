@@ -33,16 +33,25 @@ def handle_path_input():
     )
     
 def handle_object_detection_request():
-    """
+    """Handling object detection request.
+    
+    This method accepts the selected image from user, then pass the image
+    as a path to the method at the ObjectDetection file as arguments.
+    
+    Args: None.
+    Return: None.
     """
     # Pass the selected image to back_end:
     ObjectDetection.detect_objects(selected_img)
     
 
-"""Code for running the UI.
+"""Code for running the UI
     
     This method contains the codes to plot the UI, the color,
     the size of UI and button and displaying the UI.
+    
+    Args: None.
+    Return: None. 
     
 """    
 # Initialize GUI settings
@@ -51,17 +60,18 @@ customtkinter.set_default_color_theme("blue")
 
 # Create the main window with size and title
 app = customtkinter.CTk()
-app.geometry("860x480")
+app.geometry("480x360")
 app.title("IPR_Assignment 3")
     
 # Button for each action
 # Button to selecting image:
-detecting_edge_button = customtkinter.CTkButton(master=app, text="Select image", command=handle_path_input)
-detecting_edge_button.place(relx=0.5, rely=0.2, anchor=customtkinter.CENTER)
+select_image_button = customtkinter.CTkButton(master=app, text="Select image", command=handle_path_input)
+select_image_button.place(relx=0.5, rely=0.2, anchor=customtkinter.CENTER)
     
 # Button to detecting edge:
-detecting_edge_button = customtkinter.CTkButton(master=app, text="Recognize object!", command=handle_object_detection_request)
-detecting_edge_button.place(relx=0.5, rely=0.3, anchor=customtkinter.CENTER)
+detecting_obj_button = customtkinter.CTkButton(master=app, text="Recognize object!", command=handle_object_detection_request)
+detecting_obj_button.place(relx=0.5, rely=0.3, anchor=customtkinter.CENTER)
+
     
 # Code to start the app:
 app.mainloop()
